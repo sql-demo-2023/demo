@@ -5,16 +5,24 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,yml,yaml}\"",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,yml,yaml}\""
   },
   "private": true,
   "dependencies": {
     "@emotion/react": "11.10.5",
     "@emotion/server": "11.10.0",
     "@emotion/styled": "11.10.5",
+    "@mui/material": "^5.11.0",
     "@nrwl/next": "15.3.3",
+    "@reduxjs/toolkit": "^1.9.1",
+    "axios": "^1.2.1",
     "core-js": "^3.6.5",
+    "husky": "^8.0.2",
+    "i18n": "^0.15.1",
     "next": "13.0.0",
+    "pnpm": "^7.18.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "regenerator-runtime": "0.13.7",
@@ -23,6 +31,7 @@
   "devDependencies": {
     "@babel/preset-react": "^7.14.5",
     "@emotion/babel-plugin": "11.10.5",
+    "@mocks-server/main": "^4.0.0",
     "@nrwl/cypress": "15.3.3",
     "@nrwl/eslint-plugin-nx": "15.3.3",
     "@nrwl/jest": "15.3.3",
