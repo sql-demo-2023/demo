@@ -14,6 +14,7 @@ export function Index() {
   return (
     <StyledPage>
       <div> Hello, World! </div>
+      <div> This is a staging env. </div>
     </StyledPage>
   );
 }
