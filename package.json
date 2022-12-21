@@ -9,6 +9,11 @@
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,yml,yaml}\"",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,yml,yaml}\""
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "private": true,
   "dependencies": {
     "@emotion/react": "11.10.5",
@@ -30,6 +35,8 @@
   },
   "devDependencies": {
     "@babel/preset-react": "^7.14.5",
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
     "@emotion/babel-plugin": "11.10.5",
     "@mocks-server/main": "^4.0.0",
     "@nrwl/cypress": "15.3.3",
