@@ -6,14 +6,8 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "pre-push": "nx test",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,yml,yaml}\"",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,yml,yaml}\""
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   },
   "private": true,
   "dependencies": {
