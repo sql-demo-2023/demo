@@ -1,20 +1,22 @@
 import styled from '@emotion/styled';
 
-const StyledPage = styled.div`
-  .page {
-  }
+const Card = styled('div')`
+  width: 60%;
+  padding: 1rem;
+  margin: 2rem auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 14px;
+  background-color: #fff8ea;
+  text-align: center;
+  color: #594545;
 `;
 
 export function Index() {
-  /*
-   * Replace the elements below with your own.
-   *
-   * Note: The corresponding styles are in the ./index.@emotion/styled file.
-   */
   return (
-    <StyledPage>
-      <div> Hello, World! </div>
-    </StyledPage>
+    <>
+      <Card> Demo App </Card>
+      <Card> This is the production env. </Card>
+    </>
   );
 }
 
