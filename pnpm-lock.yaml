@@ -14,6 +14,7 @@ specifiers:
   '@nrwl/jest': 15.3.3
   '@nrwl/linter': 15.3.3
   '@nrwl/next': 15.3.3
+  '@nrwl/nx-cloud': latest
   '@nrwl/react': 15.3.3
   '@nrwl/web': 15.3.3
   '@nrwl/workspace': 15.3.3
@@ -81,6 +82,7 @@ devDependencies:
   '@nrwl/eslint-plugin-nx': 15.3.3_7kvnwcp6mm63azsyyiskbkpsti
   '@nrwl/jest': 15.3.3_gq4koqvkoxrqpbhhamju3xfynu
   '@nrwl/linter': 15.3.3_23skzcpsbzlvutlv3uogkyx4ka
+  '@nrwl/nx-cloud': 15.0.2
   '@nrwl/react': 15.3.3_r2gzx2xpzw7235i7kfuv5sanse
   '@nrwl/web': 15.3.3_q5nodpnpqsha7fs4tujehapkx4
   '@nrwl/workspace': 15.3.3_324d72diffomyyym6tiz4paiyq
@@ -3526,6 +3528,25 @@ packages:
       - webpack-cli
     dev: false
 
+  /@nrwl/nx-cloud/15.0.2:
+    resolution:
+      {
+        integrity: sha512-DaTASuXmGyQHMxJuK6y3f7fs+Q0qQCfYDIDVGK9muNwN/QItLeWdRNltLQxbrBeS112kQTu2FPsr0DmRD60+0A==,
+      }
+    hasBin: true
+    dependencies:
+      axios: 0.21.4
+      chalk: 4.1.0
+      dotenv: 10.0.0
+      fs-extra: 10.1.0
+      node-machine-id: 1.1.12
+      strip-json-comments: 3.1.1
+      tar: 6.1.11
+      yargs-parser: 21.1.1
+    transitivePeerDependencies:
+      - debug
+    dev: true
+
   /@nrwl/react/15.3.3_r2gzx2xpzw7235i7kfuv5sanse:
     resolution:
       {
@@ -5936,6 +5957,17 @@ packages:
     engines: { node: '>=4' }
     dev: true
 
+  /axios/0.21.4:
+    resolution:
+      {
+        integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==,
+      }
+    dependencies:
+      follow-redirects: 1.15.2
+    transitivePeerDependencies:
+      - debug
+    dev: true
+
   /axios/1.2.1:
     resolution:
       {
@@ -6652,6 +6684,14 @@ packages:
       readdirp: 3.6.0
     optionalDependencies:
       fsevents: 2.3.2
+
+  /chownr/2.0.0:
+    resolution:
+      {
+        integrity: sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==,
+      }
+    engines: { node: '>=10' }
+    dev: true
 
   /chrome-trace-event/1.0.3:
     resolution:
@@ -9231,6 +9271,16 @@ packages:
       graceful-fs: 4.2.10
       jsonfile: 6.1.0
       universalify: 2.0.0
+
+  /fs-minipass/2.1.0:
+    resolution:
+      {
+        integrity: sha512-V/JgOLFCS+R6Vcq0slCuaeWEdNC3ouDlJMNIsacH2VtALiu9mV4LPrHc5cDl8k5aw6J8jwgWWpiTo5RYhmIzvg==,
+      }
+    engines: { node: '>= 8' }
+    dependencies:
+      minipass: 3.3.6
+    dev: true
 
   /fs-monkey/1.0.3:
     resolution:
@@ -12269,6 +12319,27 @@ packages:
         integrity: sha512-bzfL1YUZsP41gmu/qjrEk0Q6i2ix/cVeAhbCbqH9u3zYutS1cLg00qhrD0M2MVdCcx4Sc0UpP2eBWo9rotpq6g==,
       }
 
+  /minipass/3.3.6:
+    resolution:
+      {
+        integrity: sha512-DxiNidxSEK+tHG6zOIklvNOwm3hvCrbUrdtzY74U6HKTJxvIDfOUL5W5P2Ghd3DTkhhKPYGqeNUIh5qcM4YBfw==,
+      }
+    engines: { node: '>=8' }
+    dependencies:
+      yallist: 4.0.0
+    dev: true
+
+  /minizlib/2.1.2:
+    resolution:
+      {
+        integrity: sha512-bAxsR8BVfj60DWXHE3u30oHzfl4G7khkSuPW+qvpd7jFRHm7dLxOjUk1EHACJ/hxLY8phGJ0YhYHZo7jil7Qdg==,
+      }
+    engines: { node: '>= 8' }
+    dependencies:
+      minipass: 3.3.6
+      yallist: 4.0.0
+    dev: true
+
   /mkdirp/0.5.6:
     resolution:
       {
@@ -12500,6 +12571,13 @@ packages:
       {
         integrity: sha512-O5lz91xSOeoXP6DulyHfllpq+Eg00MWitZIbtPfoSEvqIHdl5gfcY6hYzDWnj0qD5tz52PI08u9qUvSVeUBeHw==,
       }
+
+  /node-machine-id/1.1.12:
+    resolution:
+      {
+        integrity: sha512-QNABxbrPa3qEIfrE6GOJ7BYIuignnJw7iQ2YPbc3Nla1HzRJjXzZOiikfF8m7eAMfichLt3M4VgLOetqgDmgGQ==,
+      }
+    dev: true
 
   /node-releases/2.0.8:
     resolution:
@@ -15713,6 +15791,21 @@ packages:
       fs-constants: 1.0.0
       inherits: 2.0.4
       readable-stream: 3.6.0
+
+  /tar/6.1.11:
+    resolution:
+      {
+        integrity: sha512-an/KZQzQUkZCkuoAA64hM92X0Urb6VpRhAFllDzz44U2mcD5scmT3zBc4VgVpkugF580+DQn8eAFSyoQt0tznA==,
+      }
+    engines: { node: '>= 10' }
+    dependencies:
+      chownr: 2.0.0
+      fs-minipass: 2.1.0
+      minipass: 3.3.6
+      minizlib: 2.1.2
+      mkdirp: 1.0.4
+      yallist: 4.0.0
+    dev: true
 
   /temp-dir/2.0.0:
     resolution:
