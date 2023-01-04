@@ -40,9 +40,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
       - run: pnpm run format
-      - run: |
-          echo "GITHUB_SHA: ${GITHUB_SHA}"
-      - run: pnpm affected-test --base=origin/"${GITHUB_SHA}"
+      - run: pnpm affected-test --base="${GITHUB_SHA}"
         env:
           CI: true
       - name: Build Project
