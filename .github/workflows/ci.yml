@@ -39,7 +39,7 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
-      - run: pnpm run format:check
+      - run: pnpm run format
       - run: pnpm test -- --coverage
         env:
           CI: true

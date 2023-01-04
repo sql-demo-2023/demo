@@ -73,7 +73,7 @@
     "typescript": "~4.8.2"
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx,yml,yaml}": "prettier --write",
+    "*.{js,jsx,ts,tsx,yml,yaml}": "prettier --write",
     "*.js": "eslint --cache --fix"
   }
 }
