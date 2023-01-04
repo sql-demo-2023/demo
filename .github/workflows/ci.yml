@@ -40,8 +40,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
       - run: pnpm run format
-      - run: echo ${ GITHUB_REF_NAME }
-      - run: pnpm affected-test --base=origin/${ GITHUB_REF_NAME }
+      - run: echo "${ GITHUB_REF_NAME }"
+      - run: pnpm affected-test --base=origin/"${ GITHUB_REF_NAME }"
         env:
           CI: true
       - name: Build Project
