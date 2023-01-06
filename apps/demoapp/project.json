@@ -64,6 +64,9 @@
       "options": {
         "command": "surge /Users/yu.he/demo/demo/dist/apps/demoapp/ https://ill-interest.surge.sh/ --token 72f2e79b2841c89c5c682f0d962dc1b1"
       }
+    },
+    "tsCheck": {
+      "executor": "./tools/executors/tsCheck:tsCheck"
     }
   },
   "tags": []
