@@ -19,12 +19,12 @@
     align-items: center;*/
 }
 
-.newscontainer {
+.newsContainer {
   background-color: white;
   padding: 15px;
 }
 
-.yournewscasts {
+.yourNewsCasts {
   color: darkgrey;
   border-bottom: 1px solid rgba(232, 232, 232, 1);
   padding-bottom: 5px;
@@ -36,4 +36,15 @@
   align-items: center;
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.currentLanguage {
+  border-radius: '3px';
+  background-color: 'black';
+  color: 'white';
+  padding: '2px';
+}
+.currentLanguageContainer {
+  padding: '4px';
+  margin-right: '4px';
 }

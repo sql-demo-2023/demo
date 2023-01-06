@@ -1,10 +1,11 @@
 import Head from 'next/head';
-import styles from '../../styles/Home.module.css';
-import NewsCard from '../../common/components/NewsCard';
+import styles from '../../styles/news/NewsPage.module.css';
+import NewsCard from '../../common/components/NewsCard/NewsCard';
 import { useTranslation } from 'next-i18next';
 import ssrTranslations from '../../utils/ssrTranslations';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import Header from '../../common/components/Header/Header';
 
 function News() {
   const { t, i18n } = useTranslation('common');
@@ -14,6 +15,7 @@ function News() {
     i18n.changeLanguage(language);
     setNewsContent(t('content', { returnObjects: true }));
   }, [language]);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -22,34 +24,20 @@ function News() {
 
       <main className={styles.main}>
         <div className={styles.breadcrumb}>
-          <div
-            style={{
-              padding: '4px',
-              marginRight: '4px',
-            }}
-          >
-            <span>Current Language: </span>
-            <span
-              style={{
-                borderRadius: '3px',
-                backgroundColor: 'black',
-                color: 'white',
-                padding: '2px',
-              }}
-            >
-              {i18n.language}
-            </span>
-          </div>
-          <button onClick={() => setLanguage('es-ES')}>es-ES</button>
-          <button onClick={() => setLanguage('en-US')}>en-US</button>
-          <button onClick={() => setLanguage('fr-FR')}>fr-FR</button>
+          <Header>
+            <div>
+              <div className={styles.currentLanguageContainer}>
+                <span>Current Language: </span>
+                <span className={styles.currentLanguage}>{language}</span>
+              </div>
+              <button onClick={() => setLanguage('es-ES')}>es-ES</button>
+              <button onClick={() => setLanguage('en-US')}>en-US</button>
+              <button onClick={() => setLanguage('fr-FR')}>fr-FR</button>
+            </div>
+          </Header>
         </div>
 
-        <div className={styles.newscontainer}>
-          <div className={styles.yournewscasts}>
-            <h3>{t('title')}</h3>
-          </div>
-
+        <div className={styles.newsContainer}>
           <div>
             {newsContent &&
               newsContent.map((newsItem, i) => (

@@ -1,9 +1,17 @@
-.newscard {
+.newsCard {
   display: flex;
-  border-bottom: 1px solid rgba(232, 232, 2321);
+  /* border-bottom: 1px solid rgba(232, 232, 2321);
   padding-bottom: 12px;
-  margin: 20px 0;
+  margin: 20px 0; */
   cursor: pointer;
+  width: 70%;
+  padding: 1rem;
+  margin: 2rem auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 14px;
+  background-color: #fff8ea;
+  text-align: center;
+  color: #594545;
 }
 
 .newscardimg {
@@ -18,17 +26,17 @@
   background-position: center;
 }
 
-.newscarddetails {
+.newsCardDetails {
   display: flex;
   flex-direction: column;
 }
 
-.newscardname h3 {
+.newsCardName h3 {
   margin-top: 0;
   margin-bottom: 5px;
 }
 
-.newscardauthor {
+.newsCardAuthor {
   color: darkgray;
   padding: 7px 0;
 }
