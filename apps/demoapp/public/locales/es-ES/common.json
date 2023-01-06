@@ -1,0 +1,25 @@
+{
+  "title": "Tus noticias",
+  "content": [
+    {
+      "title": "El nuevo asistente de Otter.ai puede transcribir automáticamente sus reuniones de Zoom",
+      "synopsis": "El servicio de transcripción de voz con tecnología de inteligencia artificial Otter.ai quiere facilitar aún más a sus usuarios comerciales la grabación de sus reuniones. La compañía presenta hoy una nueva función, Otter Assistant, que ...",
+      "imageUrl": ""
+    },
+    {
+      "title": "Gillmor Gang: Party Line",
+      "synopsis": "En los primeros días de las redes sociales, todo parecía posible. Twitter fue este extraño reinicio de blogs, con una capa social encima de un feed RSS que daba autoridad para reflexionar sobre el último en entrar / el primero en salir por provi ...",
+      "imageUrl": ""
+    },
+    {
+      "title": "El crossover eléctrico EV6 de carga rápida de Kia llegará a los EE. UU. A principios de 2022",
+      "synopsis": "El Kia EV6, un crossover totalmente eléctrico que inicia la estrategia Plan S del fabricante de automóviles para alejarse de los motores de combustión interna y pasar a los vehículos eléctricos, llegará a los EE. UU. A principios del próximo año, el ...",
+      "imageUrl": ""
+    },
+    {
+      "title": "UTEC, una de las firmas de inversión en tecnología profunda más grandes de Asia, lanza un nuevo fondo de $ 275 millones",
+      "synopsis": "La Universidad de Tokio Edge Capital Partners (UTEC), una firma de inversión en tecnología profunda, anunció el primer cierre de su quinto fondo, que se espera que totalice 30 mil millones de yenes (o alrededor de $ 275 millones de dólares) ...",
+      "imageUrl": ""
+    }
+  ]
+}

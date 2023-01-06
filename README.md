@@ -2,7 +2,14 @@
 
 ## Get Started
 
-Run `nx serve demoapp` to start the App.
+First, run the server:
+
+```
+nx serve demoapp
+```
+
+Open http://localhost:4200 with your browser to see the result.
+The pages/api directory is mapped to /api/\*. Files in this directory are treated as API routes instead of React pages.
 
 ## Scripts
 
