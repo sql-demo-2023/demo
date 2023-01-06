@@ -1,18 +1,8 @@
 import { AppProps } from 'next/app';
-import Head from 'next/head';
-import './styles.css';
+import { appWithTranslation } from 'next-i18next';
 
-function CustomApp({ Component, pageProps }: AppProps) {
-  return (
-    <>
-      <Head>
-        <title>Welcome to demoapp!</title>
-      </Head>
-      <main className="app">
-        <Component {...pageProps} />
-      </main>
-    </>
-  );
-}
+const MyApp = ({ Component, pageProps }: AppProps) => (
+  <Component {...pageProps} />
+);
 
-export default CustomApp;
+export default appWithTranslation(MyApp);

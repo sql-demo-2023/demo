@@ -40,15 +40,18 @@ specifiers:
   eslint-plugin-react-hooks: 4.6.0
   husky: ^8.0.3
   i18n: ^0.15.1
+  i18next: ^22.4.8
   jest: 28.1.1
   jest-environment-jsdom: 28.1.1
   lint-staged: ^13.1.0
   next: 13.0.0
+  next-i18next: ^13.0.3
   nx: 15.3.3
   pnpm: ^7.18.2
   prettier: ^2.6.2
   react: 18.2.0
   react-dom: 18.2.0
+  react-i18next: ^12.1.1
   react-test-renderer: 18.2.0
   regenerator-runtime: 0.13.7
   semantic-release: ^19.0.5
@@ -67,9 +70,12 @@ dependencies:
   axios: 1.2.1
   core-js: 3.26.1
   i18n: 0.15.1
+  i18next: 22.4.8
   next: 13.0.0_biqbaboplfbrettd7655fr4n2y
+  next-i18next: 13.0.3_iezlhhtfgemeasdqpegcpqhgeq
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-i18next: 12.1.1_25zoxyjt3sfdpelgxivbzvmrha
   regenerator-runtime: 0.13.7
   tslib: 2.4.1
 
@@ -4810,6 +4816,16 @@ packages:
       }
     dependencies:
       '@types/node': 16.11.7
+
+  /@types/hoist-non-react-statics/3.3.1:
+    resolution:
+      {
+        integrity: sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==,
+      }
+    dependencies:
+      '@types/react': 18.0.25
+      hoist-non-react-statics: 3.3.2
+    dev: false
 
   /@types/http-proxy/1.17.9:
     resolution:
@@ -9775,6 +9791,15 @@ packages:
         integrity: sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg==,
       }
 
+  /html-parse-stringify/3.0.1:
+    resolution:
+      {
+        integrity: sha512-KknJ50kTInJ7qIScF3jeaFRpMpE8/lfiTdzf/twXyPBLAGrLRTmkz3AdTnKeh40X8k9L2fdYwEp/42WGXIRGcg==,
+      }
+    dependencies:
+      void-elements: 3.1.0
+    dev: false
+
   /html-tokenize/2.0.1:
     resolution:
       {
@@ -9970,6 +9995,22 @@ packages:
       mustache: 4.2.0
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /i18next-fs-backend/2.1.1:
+    resolution:
+      {
+        integrity: sha512-FTnj+UmNgT3YRml5ruRv0jMZDG7odOL/OP5PF5mOqvXud2vHrPOOs68Zdk6iqzL47cnnM0ZVkK2BAvpFeDJToA==,
+      }
+    dev: false
+
+  /i18next/22.4.8:
+    resolution:
+      {
+        integrity: sha512-XSOy17ZWqflOiJRYE/dzv6vDle2Se32dnHREHb93UnZzZ1+UnvQ8yKtt1fpNL3zvXz5AwCqqixrtTVZmRetaiQ==,
+      }
+    dependencies:
+      '@babel/runtime': 7.20.7
     dev: false
 
   /iconv-lite/0.4.24:
@@ -12468,6 +12509,29 @@ packages:
       }
     dev: true
 
+  /next-i18next/13.0.3_iezlhhtfgemeasdqpegcpqhgeq:
+    resolution:
+      {
+        integrity: sha512-7AA8J6WbkxRBtSf1+97LSAE7btxWZHsBIJEJ3FuTSBgYtpRiO5NGjcb8XbNAlz6yGU0TtS+yZE+/Wu83KhIT1Q==,
+      }
+    engines: { node: '>=14' }
+    peerDependencies:
+      i18next: ^22.0.6
+      next: '>= 12.0.0'
+      react: '>= 17.0.2'
+      react-i18next: ^12.1.1
+    dependencies:
+      '@babel/runtime': 7.20.7
+      '@types/hoist-non-react-statics': 3.3.1
+      core-js: 3.26.1
+      hoist-non-react-statics: 3.3.2
+      i18next: 22.4.8
+      i18next-fs-backend: 2.1.1
+      next: 13.0.0_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-i18next: 12.1.1_25zoxyjt3sfdpelgxivbzvmrha
+    dev: false
+
   /next/13.0.0_biqbaboplfbrettd7655fr4n2y:
     resolution:
       {
@@ -14175,6 +14239,29 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+
+  /react-i18next/12.1.1_25zoxyjt3sfdpelgxivbzvmrha:
+    resolution:
+      {
+        integrity: sha512-mFdieOI0LDy84q3JuZU6Aou1DoWW2fhapcTGeBS8+vWSJuViuoCLQAMYSb0QoHhXS8B0WKUOPpx4cffAP7r/aA==,
+      }
+    peerDependencies:
+      i18next: '>= 19.0.0'
+      react: '>= 16.8.0'
+      react-dom: '*'
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.20.7
+      html-parse-stringify: 3.0.1
+      i18next: 22.4.8
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /react-is/16.13.1:
     resolution:
@@ -16599,6 +16686,14 @@ packages:
       assert-plus: 1.0.0
       core-util-is: 1.0.2
       extsprintf: 1.3.0
+
+  /void-elements/3.1.0:
+    resolution:
+      {
+        integrity: sha512-Dhxzh5HZuiHQhbvTW9AMetFfBHDMYpo23Uo9btPXgdYP+3T5S+p+jgNy7spra+veYhBP2dCSgxR/i2Y02h5/6w==,
+      }
+    engines: { node: '>=0.10.0' }
+    dev: false
 
   /w3c-hr-time/1.0.2:
     resolution:
