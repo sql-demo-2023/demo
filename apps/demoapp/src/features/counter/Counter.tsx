@@ -15,7 +15,6 @@ function Counter() {
   const dispatch = useAppDispatch();
   const count = useAppSelector(selectCount);
   const [incrementAmount, setIncrementAmount] = useState('2');
-
   const incrementValue = Number(incrementAmount) || 0;
 
   return (
