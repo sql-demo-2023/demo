@@ -24,7 +24,8 @@
     // "src/**/*.tsx",
     // "src/**/*.js",
     // "src/**/*.jsx",
-    "next-env.d.ts"
+    "next-env.d.ts",
+    "src/hooks/hooks.ts"
   ],
   "exclude": ["node_modules", "jest.config.ts"]
 }
