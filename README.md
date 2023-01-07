@@ -16,6 +16,7 @@ The pages/api directory is mapped to /api/\*. Files in this directory are treate
 - Run `nx graph` to see a diagram of the dependencies of the projects.
 - Run `nx build` to build project.
 - Run `nx serve demoapp` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+- Run `nx server` to start the mock server. Navigate to http://localhost:3000/.
 - Run `nx test` to run all test.
 - Run `nx lint` to use Eslint.
 - Run `pnpm run format:check` to use Prettier to do format check.
