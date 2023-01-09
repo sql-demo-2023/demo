@@ -2,9 +2,11 @@ import axios from 'axios';
 
 let baseURL;
 if (process.env.NODE_ENV === 'production') {
-  baseURL = 'https://fakerapi.it/api/v1/books?_quantity=3';
+  console.log(process.env.NX_PROD_BASEURL, 'prod env');
+  baseURL = process.env.NX_PROD_BASEURL;
 } else {
-  baseURL = 'https://fakerapi.it/api/v1/books?_quantity=2';
+  console.log(process.env.NX_DEV_BASEURL, 'dev env');
+  baseURL = process.env.NX_DEV_BASEURL;
 }
 
 axios.interceptors.response.use(
