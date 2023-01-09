@@ -1,0 +1,50 @@
+.container {
+  min-height: 100vh;
+  /*padding: 0 0.5rem; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(234, 238, 243, 1);
+}
+
+.main {
+  /*padding: 5rem 0;*/
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 62%;
+  /*justify-content: center;
+    align-items: center;*/
+}
+
+.newsContainer {
+  background-color: white;
+  padding: 15px;
+}
+
+.yourNewsCasts {
+  color: darkgrey;
+  border-bottom: 1px solid rgba(232, 232, 232, 1);
+  padding-bottom: 5px;
+}
+
+.breadcrumb {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.currentLanguage {
+  border-radius: '3px';
+  background-color: 'black';
+  color: 'white';
+  padding: '2px';
+}
+.currentLanguageContainer {
+  padding: '4px';
+  margin-right: '4px';
+}

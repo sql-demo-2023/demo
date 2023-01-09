@@ -15,7 +15,7 @@ export function Index() {
   return (
     <>
       <Card> Demo App </Card>
-      <Card> This is the production env. </Card>
+      <Card> This is the staging env. </Card>
     </>
   );
 }

@@ -1,6 +1,7 @@
 /* eslint-disable */
 export default {
   displayName: 'demoapp',
+  setupFilesAfterEnv: ['<rootDir>/jest-setup.js'],
   preset: '../../jest.preset.js',
   transform: {
     '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '@nrwl/react/plugins/jest',

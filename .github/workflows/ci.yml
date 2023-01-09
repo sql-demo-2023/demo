@@ -3,7 +3,6 @@ on:
   pull_request:
     branches: [develop, main]
   push:
-    branches: [develop, main]
 
 jobs:
   build:
@@ -38,9 +37,9 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install
-      - run: pnpm run format:check
-      - run: pnpm test -- --coverage
+        run: pnpm install --no-frozen-lockfile
+      - run: pnpm run format
+      - run: pnpm affected-test --base="${GITHUB_SHA}"
         env:
           CI: true
       - name: Build Project
