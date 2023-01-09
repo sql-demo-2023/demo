@@ -1,7 +1,6 @@
-import axios from 'axios';
+import { getAxios } from '../../../utils/axios';
 export default async function handler(req, res) {
-  const books = await axios
-    .get('https://fakerapi.it/api/v1/books?_quantity=3')
-    .then((data) => data.data);
+  const books = await getAxios().then((data) => data.data);
+  console.log(books, 'books handler');
   res.status(200).json({ books: books });
 }
