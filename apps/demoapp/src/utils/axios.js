@@ -2,11 +2,11 @@ import axios from 'axios';
 
 let baseURL;
 if (process.env.NODE_ENV === 'production') {
-  console.log(process.env.NX_PROD_BASEURL, 'prod env');
   baseURL = process.env.NX_PROD_BASEURL;
+  console.log(baseURL, 'prod env');
 } else {
-  console.log(process.env.NX_DEV_BASEURL, 'dev env');
   baseURL = process.env.NX_DEV_BASEURL;
+  console.log(baseURL, 'dev env');
 }
 
 axios.interceptors.response.use(
@@ -41,7 +41,7 @@ export function getAxios(url = baseURL, params = {}) {
         resolve(res.data);
       })
       .catch((err) => {
-        console.log(err, '1');
+        console.log(err, 'error');
         reject(err);
       });
   });
