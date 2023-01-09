@@ -7,7 +7,7 @@
     "build": "nx build",
     "server": "ts-node ./server/server.js",
     "test": "nx test",
-    "affected-test": "nx affected --target=test  --base=remotes/origin/main --head=HEAD",
+    "affected-test": "nx affected --target=test",
     "lint": "nx lint",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,yml,yaml}\"",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,yml,yaml}\"",
