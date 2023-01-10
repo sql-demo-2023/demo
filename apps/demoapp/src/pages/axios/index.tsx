@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 import React, { useState } from 'react';
-
+import Card from '../../common/components/Card/Card';
 const Loader: React.FC = () => {
   const [data, setData] = useState([]);
   async function loadFeedbackHandler() {
@@ -16,7 +16,14 @@ const Loader: React.FC = () => {
     loadFeedbackHandler();
   };
   return (
-    <>
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+      }}
+    >
       <h1>This is a loader page. Data Loading from API</h1>
       <Button
         sx={{
@@ -30,8 +37,15 @@ const Loader: React.FC = () => {
       >
         Load book
       </Button>
-      <div>{data && data.map((d) => <li key={d.id}>{d.title}</li>)}</div>
-    </>
+      <div>
+        {data &&
+          data.map((d) => (
+            <Card key={d.id}>
+              <li key={d.id}>{d.title}</li>
+            </Card>
+          ))}
+      </div>
+    </div>
   );
 };
 
