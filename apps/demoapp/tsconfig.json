@@ -23,10 +23,8 @@
     "**/*.tsx",
     "**/**/*.ts",
     "**/**/*.tsx",
-    // "src/**/*.ts",
-    // "src/**/*.tsx",
-    // "src/**/*.js",
-    // "src/**/*.jsx",
+    "src/**/*.js",
+    "src/**/*.jsx",
     "next-env.d.ts",
     "src/hooks/hooks.ts",
     "jest-setup.js"
