@@ -1,46 +1,62 @@
 import axios from 'axios';
 
-let URL = process.env.NX_DEV_URL;
+let baseURL;
 if (process.env.NODE_ENV === 'production') {
-  URL = process.env.NX_PROD_URL;
-  console.log(URL, 'prod env');
+  baseURL = '';
 } else {
-  URL = process.env.NX_DEV_URL;
-  console.log(URL, 'dev env');
+  baseURL = '';
 }
-// const instance = axios.create({
-//   // .. congigure axios baseURL
-//   baseURL: `${URL}`
-// });
-// axios.interceptors.response.use(
-//   (response) => {
-//     return response;
-//   },
-//   (error) => {
-//     return Promise.reject(error);
-//   }
-// );
-// axios.interceptors.request.use(
-//   (config) => {
-//     console.log(config);
-//     config.headers['Accept'] = 'application/vnd.dpexpo.v1+json';
-//     config.baseURL = baseURL;
-//     config.timeout = 10000;
-//     return config;
-//   },
-//   (error) => {
-//     return Promise.reject(error);
-//   }
-// );
 
-// get
-export function getAxios(url = URL) {
-  return axios
-    .get(url)
-    .then((response) => response.data)
-    .catch((err) => {
-      console.log(err, 'error');
-    });
+axios.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+axios.interceptors.request.use(
+  (config) => {
+    config.headers['Accept'] = 'application/demo.axios.v1+json';
+    config.baseURL = baseURL;
+    config.timeout = 10000;
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
+export function getAxios({ url, params = {} }) {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(url, {
+        params,
+      })
+      .then((res) => {
+        resolve(res.data);
+      })
+      .catch((err) => {
+        console.log(err, '1');
+        reject(err);
+      });
+  });
+}
+
+export function postAxios({ url, data }) {
+  return new Promise((resolve, reject) => {
+    axios({
+      url,
+      method: 'post',
+      data,
+    })
+      .then((res) => {
+        resolve(res.data);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
 }
 
 export default axios;
