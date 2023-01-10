@@ -2,8 +2,8 @@
   "users": [
     {
       "id": 1,
-      "username": "duncan",
-      "country": "australia",
+      "username": "test",
+      "country": "china",
       "password": "123"
     },
     {
