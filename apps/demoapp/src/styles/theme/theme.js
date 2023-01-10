@@ -4,11 +4,12 @@ const theme = createTheme({
   spacing: 8,
   palette: {
     primary: {
-      main: '#FF7B54',
+      main: '#2C3639',
       contrastText: 'white',
     },
     secondary: {
-      main: '#FFB26B',
+      main: '#fff8ea',
+      contrastText: '#594545',
     },
     vintage: {
       main: '#939B62',
