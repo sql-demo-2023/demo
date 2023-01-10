@@ -2,30 +2,49 @@
 
 ## Get Started
 
-First, run the server:
+First, install all the dependencies:
 
 ```
-nx serve demoapp
+npm install
+```
+
+Then, run the server:
+
+```
+pnpm run start
 ```
 
 Open http://localhost:4200 with your browser to see the result.
-The pages/api directory is mapped to /api/\*. Files in this directory are treated as API routes instead of React pages.
+
+Or run the local json-server at port 3000:
+
+```
+pnpm run server
+```
 
 ## Scripts
 
-- Run `nx graph` to see a diagram of the dependencies of the projects.
-- Run `nx build` to build project.
-- Run `nx serve demoapp` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-- Run `nx server` to start the mock server. Navigate to http://localhost:3000/.
-- Run `nx test` to run all test.
-- Run `nx lint` to use Eslint.
-- Run `pnpm run format:check` to use Prettier to do format check.
-- Run `pnpm run format` to use Prettier to correct format.
-- Run `nx e2e demoapp-e2e` to run E2E tests.
+In package.json file, choose one command to run:
+
+- Run `build` to build project.
+- Run `serve` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+- Run `server` to start the mock server. Navigate to http://localhost:3000/.
+- Run `test` to run all test.
+- Run `affected-test` to run all test.
+- Run `lint` to use Eslint.
+- Run `format:check` to use Prettier to do format check.
+- Run `format` to use Prettier to correct format.
 
 ## Naming conventions
 
-- Component: PascalCase
+Reference Link: [Google TypeScript Style Guide](https://google.github.io/styleguide/tsguide.html)
+
+| Style          | Category                                                           |
+| -------------- | ------------------------------------------------------------------ |
+| UpperCamelCase | class / interface / type / enum / decorator / type parameters      |
+| lowerCamelCase | variable / parameter / function / method / property / module alias |
+| CONSTANT_CASE  | global constant values, including enum values.                     |
+| #ident         | private identifiers are never used.                                |
 
 ## Tech Stack
 
@@ -47,7 +66,7 @@ The pages/api directory is mapped to /api/\*. Files in this directory are treate
 | Axios                 | Axios is a promise-based HTTP Client for node.js and the browser.                                                                                                                                                            |
 | Material UI           | MUI offers a comprehensive suite of UI tools to help you ship new features faster.                                                                                                                                           |
 | pnpm                  | PNPM is an alternative package manager for Node. js which stands for “Performant NPM”.                                                                                                                                       |
-| Apollo GraphQL        | Pa comprehensive state management library for JavaScript that enables you to manage both local and remote data with GraphQL.                                                                                                 |
+| json-server           | Get a full fake REST API with zero coding in less than 30 seconds (seriously)                                                                                                                                                |
 
 ### NX
 
@@ -58,28 +77,47 @@ We’re going to use Nx for this setup because it provides a series of advantage
 - improved build and test speed via Nx affected commands and computation caching
 - out of the box support for code generation, Storybook and Cypress integration
 
-### React
-
-A JavaScript library for building user interfaces.
-
 ### Next.js
 
-Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more. No config needed.
+The pages/api directory is mapped to /api/\*. Files in this directory are treated as API routes instead of React pages.
 
 ### Emotion
 
 It provides powerful and predictable style composition in addition to a great developer experience with features such as source maps, labels, and testing utilities. Both string and object styles are supported.
 
+### next-i18next
+
+The easiest way to translate your Next.js apps.
+While next-i18next uses i18next and react-i18next under the hood, users of next-i18next simply need to include their translation content as JSON files and don't have to worry about much else.
+
 ## Project structure
 
-```
-demo/
-├── apps/
-├── libs/
-├── tools/
-├── nx.json
-├── package.json
-└── tsconfig.base.json
+```bash
++---.github
+|   \---workflows
++---.husky
++---apps
+|   +---demoapp
+|   |   +---.next
+|   |   +---public
+|   |   |   \---locales
+|   |   +---specs
+|   |   \---src
+|   |       +---common
+|   |       |   \---components
+|   |       +---features
+|   |       |   \---counter
+|   |       +---hooks
+|   |       +---pages
+|   |       +---store
+|   |       +---styles
+|   |       \---utils
+|   \---demoapp-e2e
++---data
++---libs
++---node_modules
++---tsconfig.base.json
++---nx.json
 ```
 
 /apps/ contains the application projects. This is the main entry point for a runnable application. We recommend keeping applications as light-weight as possible, with all the heavy lifting being done by libraries that are imported by each application.
@@ -96,6 +134,33 @@ demo/
 
 ### commit
 
+With pre-commit husky hook, each commit will first run:
+
+```
+npx lint-staged
+```
+
+With commitlint, it will also check if your commit messages meet the [conventional commit format](https://www.conventionalcommits.org/en/v1.0.0/).
+
 ### push
 
+With pre-push husky hook, each push will first run:
+
+```
+npx nx affected --target=test --base=remotes/origin/main --head=HEAD
+```
+
 ## Version release
+
+semantic-release uses the commit messages to determine the consumer impact of changes in the codebase. Following formalized conventions for commit messages, semantic-release automatically determines the next semantic version number, generates a changelog and publishes the release.
+
+By default, semantic-release uses Angular Commit Message Conventions.
+
+Tools such as commitizen or commitlint can be used to help contributors and enforce valid commit messages.
+
+The table below shows which commit message gets you which release type when semantic-release runs (using the default configuration):
+| Commit message | Release type |
+| ----------- | ----------- |
+| fix(pencil): stop graphite breaking when too much pressure applied | Patch Fix Release |
+| feat(pencil): add 'graphiteWidth' option | Minor Feature Release |
+| BREAKING CHANGE: The graphiteWidth option has been removed. | Major Breaking Release |
