@@ -1,16 +1,18 @@
-html,
-body {
+/* body {
+  width: '100%';
+  height: 100vh;
+  background-color: '#0e101c';
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: rgba(234, 238, 243, 1);
-}
+  background-color: '#0e101c';
+} */
 
-a {
-  /*color: inherit;
+/* a { */
+/*color: inherit;
   text-decoration: none;*/
-  margin-left: 2px;
+/* margin-left: 2px;
   margin-right: 2px;
 }
 a:active {
@@ -18,9 +20,9 @@ a:active {
 }
 * {
   box-sizing: border-box;
-}
+} */
 
-button {
+/* button {
   height: 30px;
   padding: 0px 15px 2px;
   font-weight: 400;
@@ -109,15 +111,13 @@ button {
   box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2),
     0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
-}
+} */
 
-input[type='text'] {
+/* input[type='text'] {
   width: 100%;
-  /*height: 3.4rem;*/
   padding: 9px;
-  font-weight: 400;
-  /*font-size: 1.3rem;*/
-  cursor: text;
+  font-weight: 400; */
+/* cursor: text;
   outline: 0px;
   border: 1px solid rgb(227, 233, 243);
   border-radius: 2px;
@@ -146,4 +146,4 @@ input[type='text'] {
 .disable {
   opacity: 0.5;
   cursor: not-allowed;
-}
+} */

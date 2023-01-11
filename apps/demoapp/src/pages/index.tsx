@@ -1,12 +1,11 @@
-import Card from '../common/components/Card/Card';
+import FactFindingForm from '../common/components/FactFindingForm/FactFindingForm';
 
-export function Index() {
+export function FactFindingPage() {
   return (
     <>
-      <Card> Demo App </Card>
-      <Card> This is the staging env. </Card>
+      <FactFindingForm />
     </>
   );
 }
 
-export default Index;
+export default FactFindingPage;

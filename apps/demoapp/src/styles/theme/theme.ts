@@ -11,9 +11,6 @@ const theme = createTheme({
       main: '#fff8ea',
       contrastText: '#594545',
     },
-    vintage: {
-      main: '#939B62',
-    },
     error: {
       main: '#B73E3E',
     },
