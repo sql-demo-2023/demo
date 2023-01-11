@@ -2,6 +2,8 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { createTheme, styled } from '@mui/material/styles';
+import Card from '../../common/components/Card/Card';
+import Stack from '@mui/material/Stack';
 const customTheme = createTheme({
   spacing: 4,
   palette: {
@@ -16,7 +18,6 @@ const customTheme = createTheme({
 const StyledButton = styled(Button)(({ theme }) => ({
   color: theme.palette.primary.contrastText,
   backgroundColor: theme.palette.primary.main,
-  margin: theme.spacing(1),
   borderRadius: theme.shape.borderRadius,
 }));
 const StyledBox = styled(Box)(({ theme }) => ({
@@ -27,11 +28,22 @@ const StyledBox = styled(Box)(({ theme }) => ({
 
 export default function Home() {
   return (
-    <Container maxWidth="md">
+    <Container
+      maxWidth="md"
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+      }}
+    >
       <StyledBox theme={customTheme}>
-        MUI v5 + Next.js with TypeScript example
+        <Card>MUI v5 + Next.js with TypeScript example</Card>
+        <Stack spacing={2} direction="row" justifyContent="center">
+          <StyledButton>defaultTheme Button</StyledButton>
+          <StyledButton theme={customTheme}>customTheme Button</StyledButton>
+        </Stack>
       </StyledBox>
-      <StyledButton>Styled Button</StyledButton>
     </Container>
   );
 }

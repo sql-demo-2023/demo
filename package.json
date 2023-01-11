@@ -10,8 +10,7 @@
     "affected-test": "nx affected --target=test",
     "lint": "nx lint",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,yml,yaml}\"",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,yml,yaml}\"",
-    "prepare": "husky install"
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,yml,yaml}\""
   },
   "private": true,
   "dependencies": {

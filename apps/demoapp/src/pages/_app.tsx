@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import theme from '../styles/theme/theme';
 import store from '../store/store';
+import NavHeader from '../common/components/NavHeader/NavHeader';
 
 const MyApp = (props: AppProps) => {
   const { Component, pageProps } = props;
@@ -12,6 +13,7 @@ const MyApp = (props: AppProps) => {
     <ThemeProvider theme={theme}>
       <Provider store={store}>
         <CssBaseline />
+        <NavHeader />
         <Component {...pageProps} />
       </Provider>
     </ThemeProvider>

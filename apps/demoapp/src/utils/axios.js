@@ -2,9 +2,9 @@ import axios from 'axios';
 
 let baseURL;
 if (process.env.NODE_ENV === 'production') {
-  baseURL = 'https://fakerapi.it/api/v1/books?_quantity=3';
+  baseURL = '';
 } else {
-  baseURL = 'https://fakerapi.it/api/v1/books?_quantity=2';
+  baseURL = '';
 }
 
 axios.interceptors.response.use(
@@ -17,8 +17,7 @@ axios.interceptors.response.use(
 );
 axios.interceptors.request.use(
   (config) => {
-    console.log(config);
-    config.headers['Accept'] = 'application/vnd.dpexpo.v1+json';
+    config.headers['Accept'] = 'application/demo.axios.v1+json';
     config.baseURL = baseURL;
     config.timeout = 10000;
     return config;
@@ -28,8 +27,7 @@ axios.interceptors.request.use(
   }
 );
 
-// get
-export function getAxios(url = baseURL, params = {}) {
+export function getAxios({ url, params = {} }) {
   return new Promise((resolve, reject) => {
     axios
       .get(url, {
@@ -45,7 +43,6 @@ export function getAxios(url = baseURL, params = {}) {
   });
 }
 
-// post
 export function postAxios({ url, data }) {
   return new Promise((resolve, reject) => {
     axios({
