@@ -1,6 +1,6 @@
 export async function fetchCategory(category = 1): Promise<{ data: number }> {
-  const response = await fetch('/api/counter', {
-    method: 'POST',
+  const response = await fetch('/api/category', {
+    method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },

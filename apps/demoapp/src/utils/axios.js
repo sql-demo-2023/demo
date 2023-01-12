@@ -34,6 +34,7 @@ export function getAxios({ url, params = {} }) {
         params,
       })
       .then((res) => {
+        // console.log(res, 'res');
         resolve(res.data);
       })
       .catch((err) => {

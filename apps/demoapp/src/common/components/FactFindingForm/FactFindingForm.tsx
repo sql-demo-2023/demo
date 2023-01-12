@@ -3,7 +3,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { Input } from '@material-ui/core';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 // import styles from './FactFindingForm.module.css';
 import { Box, styled } from '@mui/material';
 import { useAppSelector, useAppDispatch } from '../../../hooks/hooks';
@@ -12,67 +12,71 @@ import {
   reset,
   selectCategory,
 } from '../../../features/category/categorySlice';
-
+import BasicCoverageForm from './BasicCoverageForm';
+import RiderCoverageForm from './RiderCoverageForm';
 interface IFormInput {
-  name: string;
-  price: string;
+  basic: { category: string; price: number; basicNumber: number };
+  rider: [];
 }
 const StyledBox = styled(Box)(({ theme }) => ({
   padding: '0 20px',
 }));
 export default function FactFindingForm() {
-  const [price, setPrice] = useState('18');
-  const { control, handleSubmit } = useForm<IFormInput>();
+  const { control, handleSubmit, getValues } = useForm<IFormInput>();
+  const [bookCategories, setBookCategories] = useState([]);
+  async function loadBookCategoriesHandler() {
+    const res = await fetch(`/api/category`);
+    // const { categories } = await res.json();
+    // console.log(categories.categories);
+    const { categories } = await res.json();
+    console.log(categories);
+    setBookCategories(categories);
+    console.log(bookCategories, 'bookCategories');
+  }
+
+  useEffect(() => {
+    loadBookCategoriesHandler();
+    console.log(bookCategories, 'bookCategories');
+  }, []);
   const dispatch = useAppDispatch();
   const category = useAppSelector(selectCategory);
-
   const onSubmit = (data: IFormInput) => {
     console.log(data, 'data');
-    dispatch(updateCategory(data.name));
     alert(JSON.stringify(data));
-  };
-
-  const handleChange = (event: SelectChangeEvent) => {
-    setPrice(event.target.value as string);
   };
 
   return (
     <StyledBox sx={{ display: 'flex', flexDirection: 'column' }}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <label>Name</label>
+          <label>Basic</label>
           <Controller
-            render={({ field }) => <Input {...field} />}
-            name="name"
+            render={({ field: { onChange, value } }) => (
+              <BasicCoverageForm value={value} onChange={onChange} />
+            )}
+            name="basic"
             control={control}
-            defaultValue=""
+            defaultValue={{
+              category: 'GIS',
+              price: 20,
+              basicNumber: 0,
+            }}
           />
         </div>
         <div>
-          <label>Age</label>
+          <label>Rider</label>
           <Controller
-            name="price"
-            render={({ field }) => (
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={price}
-                label="Price"
-                onChange={handleChange}
-              >
-                <MenuItem value={10}>10</MenuItem>
-                <MenuItem value={20}>20</MenuItem>
-                <MenuItem value={30}>30</MenuItem>
-              </Select>
+            render={({ field: { onChange, value } }) => (
+              <RiderCoverageForm value={value} onChange={onChange} />
             )}
+            name="rider"
             control={control}
-            defaultValue={'20'}
+            defaultValue={[]}
           />
         </div>
-
-        <input type="submit" />
+        <label htmlFor="save">Save Plan</label>
+        <input type="submit" id="save" />
       </form>
-      <span>Current Category Name is {category}</span>
     </StyledBox>
   );
 }
