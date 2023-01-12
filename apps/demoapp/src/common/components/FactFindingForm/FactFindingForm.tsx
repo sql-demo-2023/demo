@@ -1,4 +1,4 @@
-import { useForm, Controller } from 'react-hook-form';
+import { useForm, Controller, FormProvider } from 'react-hook-form';
 
 import { Input } from '@material-ui/core';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
@@ -14,29 +14,31 @@ import {
 } from '../../../features/category/categorySlice';
 import BasicCoverageForm from './BasicCoverageForm';
 import RiderCoverageForm from './RiderCoverageForm';
+export type BasicValueType = {
+  category: string | undefined;
+  price: number | undefined;
+  basicNumber: number | undefined;
+  isFullFilled: boolean;
+};
 interface IFormInput {
-  basic: { category: string; price: number; basicNumber: number };
+  basic: BasicValueType;
   rider: [];
 }
 const StyledBox = styled(Box)(({ theme }) => ({
   padding: '0 20px',
 }));
 export default function FactFindingForm() {
-  const { control, handleSubmit, getValues } = useForm<IFormInput>();
+  const methods = useForm<IFormInput>();
+  const { control, handleSubmit } = methods;
   const [bookCategories, setBookCategories] = useState([]);
   async function loadBookCategoriesHandler() {
     const res = await fetch(`/api/category`);
-    // const { categories } = await res.json();
-    // console.log(categories.categories);
     const { categories } = await res.json();
-    console.log(categories);
     setBookCategories(categories);
-    console.log(bookCategories, 'bookCategories');
   }
 
   useEffect(() => {
     loadBookCategoriesHandler();
-    console.log(bookCategories, 'bookCategories');
   }, []);
   const dispatch = useAppDispatch();
   const category = useAppSelector(selectCategory);
@@ -47,36 +49,45 @@ export default function FactFindingForm() {
 
   return (
     <StyledBox sx={{ display: 'flex', flexDirection: 'column' }}>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <label>Basic</label>
-          <Controller
-            render={({ field: { onChange, value } }) => (
-              <BasicCoverageForm value={value} onChange={onChange} />
-            )}
-            name="basic"
-            control={control}
-            defaultValue={{
-              category: 'GIS',
-              price: 20,
-              basicNumber: 0,
-            }}
-          />
-        </div>
-        <div>
-          <label>Rider</label>
-          <Controller
-            render={({ field: { onChange, value } }) => (
-              <RiderCoverageForm value={value} onChange={onChange} />
-            )}
-            name="rider"
-            control={control}
-            defaultValue={[]}
-          />
-        </div>
-        <label htmlFor="save">Save Plan</label>
-        <input type="submit" id="save" />
-      </form>
+      <FormProvider {...methods}>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div>
+            <label>Basic</label>
+            <Controller
+              render={({ field: { onChange, value } }) => (
+                <BasicCoverageForm
+                  value={value}
+                  onChange={onChange}
+                  bookCategories={bookCategories}
+                />
+              )}
+              name="basic"
+              control={control}
+              defaultValue={{
+                category: undefined,
+                price: undefined,
+                basicNumber: 0,
+                isFullFilled: false,
+              }}
+            />
+          </div>
+          <div>
+            <label>Rider</label>
+            <Controller
+              render={({ field: { onChange, value } }) => (
+                <RiderCoverageForm value={value} onChange={onChange} />
+              )}
+              name="rider"
+              control={control}
+              defaultValue={[]}
+            />
+          </div>
+          <label htmlFor="save">Save Plan</label>
+          <input type="submit" id="save" />
+        </form>
+      </FormProvider>
+      {bookCategories.length > 0 &&
+        bookCategories.map((c) => <li key={c.categoryId}>{c.name}</li>)}
     </StyledBox>
   );
 }

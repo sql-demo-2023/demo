@@ -14,17 +14,6 @@ interface Props {
   onChange: (...event: any[]) => void;
 }
 const RiderCoverageForm: React.FC<Props> = ({ onChange, value }) => {
-  const handleCategoryChange = (event) => {
-    onChange({ ...value, category: event.target.value as string });
-  };
-  const handlePriceChange = (event: SelectChangeEvent) => {
-    onChange({ ...value, price: event.target.value });
-  };
-  const handleBasicNumberChange = (event) => {
-    console.log(value, 'v');
-    onChange({ ...value, basicNumber: event.target.value as number });
-  };
-
   return (
     <>
       {/* <div>
