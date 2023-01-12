@@ -6,10 +6,11 @@ const URL = (
 ).replaceAll('`', '');
 
 export default async function handler(req, res) {
-  const categories = await getAxios({
-    url: `http://localhost:3000/category`,
+  const {
+    data: { category },
+  } = await getAxios({
+    url: `http://localhost:3000/books`,
   });
 
-  // console.log(categories, 'api');
-  res.status(200).json({ categories: categories });
+  res.status(200).json({ categories: category });
 }
